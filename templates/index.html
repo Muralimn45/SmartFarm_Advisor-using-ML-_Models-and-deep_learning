@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Agricultural Fertilizer Recommender</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-seedling me-2"></i>KrishiSeva
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <h4 class="mb-0"><i class="fas fa-calculator me-2"></i>Crop Fertilizer Recommendation System</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="fertilizerForm">
+                            <div class="row">
+                                <!-- Left Column -->
+                                <div class="col-md-6">
+                                    <!-- Crop Selection -->
+                                    <div class="mb-4">
+                                        <h5 class="mb-3"><i class="fas fa-leaf me-2 text-success"></i>Select Crop</h5>
+                                        <select class="form-select" id="crop" required>
+                                            <option value="" selected disabled>Select Crop</option>
+                                            <optgroup label="Cereals">
+                                                <option>Rice</option>
+                                                <option>Wheat</option>
+                                                <option>Maize</option>
+                                                <option>Barley</option>
+                                                <option>Sorghum (Jowar)</option>
+                                                <option>Pearl Millet (Bajra)</option>
+                                                <option>Finger Millet (Ragi)</option>
+                                                <option>Oats</option>
+                                                <option>Buckwheat</option>
+                                                <option>Foxtail Millet</option>
+                                                <option>Little Millet</option>
+                                                <option>Kodo Millet</option>
+                                                <option>Proso Millet</option>
+                                                <option>Barnyard Millet</option>
+                                            </optgroup>
+                                            <optgroup label="Pulses">
+                                                <option>Chickpea (Chana)</option>
+                                                <option>Pigeon Pea (Arhar/Toor)</option>
+                                                <option>Mung Bean (Moong)</option>
+                                                <option>Urd Bean (Urad)</option>
+                                                <option>Lentil (Masur)</option>
+                                                <option>Peas (Matar)</option>
+                                                <option>Cowpea (Lobia)</option>
+                                                <option>Horse Gram (Kulthi)</option>
+                                                <option>Moth Bean (Matki)</option>
+                                                <option>Kidney Bean (Rajma)</option>
+                                                <option>Black Gram (Urad)</option>
+                                                <option>Green Gram (Moong)</option>
+                                                <option>Bengal Gram (Chana)</option>
+                                                <option>Red Gram (Arhar)</option>
+                                                <option>Grass Pea (Khesari)</option>
+                                            </optgroup>
+                                            <optgroup label="Oilseeds">
+                                                <option>Groundnut</option>
+                                                <option>Mustard</option>
+                                                <option>Soybean</option>
+                                                <option>Sunflower</option>
+                                                <option>Sesame</option>
+                                                <option>Castor</option>
+                                                <option>Linseed</option>
+                                                <option>Niger Seed</option>
+                                                <option>Safflower</option>
+                                            </optgroup>
+                                            <optgroup label="Cash Crops">
+                                                <option>Sugarcane</option>
+                                                <option>Cotton</option>
+                                                <option>Tobacco</option>
+                                                <option>Jute</option>
+                                                <option>Tea</option>
+                                                <option>Coffee</option>
+                                                <option>Rubber</option>
+                                            </optgroup>
+                                            <optgroup label="Vegetables">
+                                                <option>Potato</option>
+                                                <option>Onion</option>
+                                                <option>Tomato</option>
+                                                <option>Chilli</option>
+                                                <option>Cabbage</option>
+                                                <option>Cauliflower</option>
+                                                <option>Brinjal (Eggplant)</option>
+                                                <option>Okra (Bhindi)</option>
+                                                <option>Spinach</option>
+                                                <option>Carrot</option>
+                                                <option>Radish</option>
+                                                <option>Ginger</option>
+                                                <option>Garlic</option>
+                                                <option>Capsicum</option>
+                                                <option>Bitter Gourd</option>
+                                                <option>Bottle Gourd</option>
+                                                <option>Ridge Gourd</option>
+                                                <option>Pumpkin</option>
+                                                <option>Cucumber</option>
+                                            </optgroup>
+                                            <optgroup label="Fruits">
+                                                <option>Banana</option>
+                                                <option>Mango</option>
+                                                <option>Grapes</option>
+                                                <option>Citrus</option>
+                                                <option>Apple</option>
+                                                <option>Guava</option>
+                                                <option>Papaya</option>
+                                                <option>Pomegranate</option>
+                                                <option>Litchi</option>
+                                                <option>Orange</option>
+                                                <option>Sweet Lime</option>
+                                                <option>Pineapple</option>
+                                                <option>Strawberry</option>
+                                                <option>Watermelon</option>
+                                                <option>Muskmelon</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+
+                                    <!-- Region and Month Selection -->
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <h5 class="mb-3"><i class="fas fa-map-marker-alt me-2 text-success"></i>Region</h5>
+                                            <select class="form-select" id="region" required>
+                                                <option value="" selected disabled>Select State/UT</option>
+                                                <option>Andhra Pradesh</option>
+                                                <option>Arunachal Pradesh</option>
+                                                <option>Assam</option>
+                                                <option>Bihar</option>
+                                                <option>Chhattisgarh</option>
+                                                <option>Goa</option>
+                                                <option>Gujarat</option>
+                                                <option>Haryana</option>
+                                                <option>Himachal Pradesh</option>
+                                                <option>Jharkhand</option>
+                                                <option>Karnataka</option>
+                                                <option>Kerala</option>
+                                                <option>Madhya Pradesh</option>
+                                                <option>Maharashtra</option>
+                                                <option>Manipur</option>
+                                                <option>Meghalaya</option>
+                                                <option>Mizoram</option>
+                                                <option>Nagaland</option>
+                                                <option>Odisha</option>
+                                                <option>Punjab</option>
+                                                <option>Rajasthan</option>
+                                                <option>Sikkim</option>
+                                                <option>Tamil Nadu</option>
+                                                <option>Telangana</option>
+                                                <option>Tripura</option>
+                                                <option>Uttar Pradesh</option>
+                                                <option>Uttarakhand</option>
+                                                <option>West Bengal</option>
+                                                <option>Andaman and Nicobar Islands</option>
+                                                <option>Chandigarh</option>
+                                                <option>Dadra and Nagar Haveli and Daman and Diu</option>
+                                                <option>Delhi</option>
+                                                <option>Jammu and Kashmir</option>
+                                                <option>Ladakh</option>
+                                                <option>Lakshadweep</option>
+                                                <option>Puducherry</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <h5 class="mb-3"><i class="fas fa-calendar-alt me-2 text-success"></i>Month</h5>
+                                            <select class="form-select" id="month" required>
+                                                <option value="" selected disabled>Select Month</option>
+                                                <option>January</option>
+                                                <option>February</option>
+                                                <option>March</option>
+                                                <option>April</option>
+                                                <option>May</option>
+                                                <option>June</option>
+                                                <option>July</option>
+                                                <option>August</option>
+                                                <option>September</option>
+                                                <option>October</option>
+                                                <option>November</option>
+                                                <option>December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right Column -->
+                                <div class="col-md-6">
+                                    <h5 class="mb-3"><i class="fas fa-flask me-2 text-success"></i>Soil Parameters</h5>
+
+                                    <!-- Nitrogen -->
+                                    <div class="mb-3">
+                                        <label for="N" class="form-label">Nitrogen (N) - <span class="parameter-value" id="N-value">0</span> ppm</label>
+                                        <input type="range" class="form-range parameter-slider" id="N" min="0" max="300" value="0">
+                                        <small class="text-muted">Recommended: 50-250 ppm</small>
+                                    </div>
+
+                                    <!-- Phosphorus -->
+                                    <div class="mb-3">
+                                        <label for="P" class="form-label">Phosphorus (P) - <span class="parameter-value" id="P-value">0</span> ppm</label>
+                                        <input type="range" class="form-range parameter-slider" id="P" min="0" max="200" value="0">
+                                        <small class="text-muted">Recommended: 30-150 ppm</small>
+                                    </div>
+
+                                    <!-- Potassium -->
+                                    <div class="mb-3">
+                                        <label for="K" class="form-label">Potassium (K) - <span class="parameter-value" id="K-value">0</span> ppm</label>
+                                        <input type="range" class="form-range parameter-slider" id="K" min="0" max="250" value="0">
+                                        <small class="text-muted">Recommended: 50-200 ppm</small>
+                                    </div>
+
+                                    <!-- Smaller Inputs -->
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="temperature" class="form-label">Temperature (°C)</label>
+                                            <input type="number" class="form-control" id="temperature" min="10" max="50" step="0.1" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="humidity" class="form-label">Humidity (%)</label>
+                                            <input type="number" class="form-control" id="humidity" min="0" max="100" step="0.1" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="ph" class="form-label">Soil pH</label>
+                                            <input type="number" step="0.1" class="form-control" id="ph" min="4.0" max="9.0" required>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <label for="moisture" class="form-label">Moisture (%)</label>
+                                            <input type="number" class="form-control" id="moisture" min="0" max="100" step="0.1" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-success btn-lg px-5">
+                                    <i class="fas fa-search me-2"></i>Get Fertilizer Recommendation
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Results Section (Initially Hidden) -->
+                <div class="card result-card mb-5" id="resultSection" style="display: none;">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-2 text-center">
+                                <div class="fertilizer-icon">
+                                    <i class="fas fa-pagelines"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <h3 class="text-success mb-3">Recommended Fertilizer</h3>
+                                <div class="d-flex align-items-center mb-3">
+                                    <h2 id="fertilizerName" class="mb-0 me-3">Urea</h2>
+                                    <span id="fertilizerCategory" class="category-badge">Nitrogen Fertilizer</span>
+                                </div>
+                                <p class="mb-1"><strong>For Crop:</strong> <span id="resultCrop">Rice</span></p>
+                                <p class="mb-1"><strong>In Region:</strong> <span id="resultRegion">Punjab</span></p>
+                                <p class="mb-1"><strong>During:</strong> <span id="resultMonth">June</span></p>
+
+                                <div class="alert alert-info mt-3" id="fertilizerInfo">
+                                    <strong>About this fertilizer:</strong> Urea is a commonly used nitrogen fertilizer with 46% nitrogen content.
+                                </div>
+
+                                <button class="btn btn-outline-success mt-2" id="saveRecommendation">
+                                    <i class="fas fa-bookmark me-2"></i>Save Recommendation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2023 KrishiSeva - Indian Fertilizer Recommendation System</p>
+            <p class="mb-0">Data sourced from ICAR and Department of Agriculture, Government of India</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/script.js"></script> <!-- Link to external JavaScript -->
+</body>
+</html>
+
